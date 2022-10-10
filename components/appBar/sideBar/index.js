@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Typography } from "../../typography";
 
 
-export const SideBar = ({showSideBar}) => {
+export const Sidebar = ({showSideBar}) => {
 
     const categories = useSelector(selectCategories)
 

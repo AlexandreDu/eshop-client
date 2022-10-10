@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { BurgerMenu } from "./burgerMenu"
-import { SideBar } from "./sidebar"
+import { Sidebar } from "./Sidebar"
 import { useOutsideClick } from "../../hooks/useOutsideClick"
 import { CartIcon } from "../cart/CartIcon"
 import { LoginIcon } from "./loginIcon"
@@ -30,7 +30,7 @@ export const AppBar = ({}) => {
                 <CartIcon />
                 <LoginIcon />
             </header>
-            <SideBar 
+            <Sidebar 
                 showSideBar={showSideBar}
             />
         </>
