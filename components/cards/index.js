@@ -22,6 +22,7 @@ const ProductCard = ({
     onClick
 }) => {
 
+    console.log('image path', image)
   
 
     return (
