@@ -74,11 +74,13 @@ export const Sidebar = ({showSideBar}) => {
                         let categoryName = <Typography component={'span'} variant={'h1'}>{categoriesMapping[id].title.toUpperCase()}</Typography>
                     
                         return (
-                            <Link key={id} href={`/${categoriesMapping[id].link}`}>
-                                <li  className=''>
+                            
+                            <li className=''>
+                                <Link key={id} href={`/${categoriesMapping[id].link}`}>
                                     {categoryName}
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
+                
                         )
                     })}
                   
