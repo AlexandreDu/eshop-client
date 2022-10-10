@@ -29,7 +29,7 @@ export const CartItem = ({product}) => {
         dispatch(removeProduct(payload))
     }
 
-    const src = getStrapiURL() + product?.attributes?.image?.data?.attributes?.url
+    const src = product?.attributes?.image?.data?.attributes?.url
     const quantity = product?.quantity
     const totalProductPrice = `${(product?.attributes?.price * quantity).toFixed(2)}€`
     

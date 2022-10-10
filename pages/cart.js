@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
-import { selectCartProducts, selectTotalQuantity, selectTotalPrice } from '../features/cart/cartSlice'
+import { selectCartProducts, selectTotalQuantity } from '../features/cart/cartSlice'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { CartItem } from '../components/cart/cartItem'
 import { CartTotal } from '../components/cart/cartTotal'
 import { isEqual } from 'lodash'
-import { Typography } from '../components/typography'
+
 
 
 export default function Cart({}) {
