@@ -2,7 +2,7 @@ import qs from 'qs'
 import axios from 'axios'
 
 export function getStrapiURL(path = "") {
-    console.log('getStrapiUrl', process.env.NEXT_PUBLIC_STRAPI_API_URL)
+   
     return `${
       process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
     }${path}`;

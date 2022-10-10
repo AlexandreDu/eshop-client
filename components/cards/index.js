@@ -33,7 +33,7 @@ const ProductCard = ({
                 onClick={() => onClick(id)}
             >
                 <ResponsiveImage 
-                    src={`${getStrapiURL()}${image}`}
+                    src={image}
                     alt={title}
                 />
             </div>
@@ -98,7 +98,7 @@ const DetailedProductCard = ({
         <div>
             <div className='w-full mx-auto'>
                 <ResponsiveImage 
-                    src={`${getStrapiURL()}${image}`}
+                    src={image}
                     alt={title}
                 />
             </div>
