@@ -1,8 +1,9 @@
 import { AppBar } from "../appBar/index.js"
 import { Footer } from "./footer/index.js"
 import { PageWrapper } from "../wrapper/index.js"
+
 export function Layout({children}) {
-    console.log('render layout')
+ 
     return (
         <div className="min-h-screen flex flex-col">
             <AppBar />

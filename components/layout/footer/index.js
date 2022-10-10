@@ -18,15 +18,15 @@ export const Footer = () => {
 
     let content = [
         {
-            id: 3,
+            id: 2,
             value: womenProducts?.length || 'loading'
         },
         {
-            id: 4,
+            id: 1,
             value: menProducts?.length || 'loading'
         },
         {
-            id: 7,
+            id: 3,
             value: childrenProducts?.length || 'loading'
         }
     ]

@@ -11,15 +11,15 @@ export const Sidebar = ({showSideBar}) => {
     const categories = useSelector(selectCategories)
 
     const categoriesMapping = {
-        "4": {
+        "2": {
             title: 'women',
             link: 'women'
         },
-        "3": {
+        "1": {
             title: 'men',
             link: 'men'
         },
-        "7": {
+        "3": {
             title:'kids',
             link: 'children'
         }
