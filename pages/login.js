@@ -97,7 +97,7 @@ export default function Login({}) {
                         errorMessage={errors.email?.message}
                     />
                     
-                        <p>Don't already have an account ? <Link href='/register'>Create one.</Link></p>
+                        <p>Don&apos;t already have an account ? <Link href='/register'>Create one.</Link></p>
                     
                     
                     <p>{submitError}</p>
