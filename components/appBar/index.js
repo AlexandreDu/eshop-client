@@ -17,7 +17,6 @@ export const AppBar = ({}) => {
     }
     const ref = useOutsideClick(handleClickOutsideSideBar)
 
-    console.log('render AppBar')
     
     return (
         <>
