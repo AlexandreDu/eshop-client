@@ -75,8 +75,8 @@ export const Sidebar = ({showSideBar}) => {
                     
                         return (
                             
-                            <li className=''>
-                                <Link key={id} href={`/${categoriesMapping[id].link}`}>
+                            <li key={id} className=''>
+                                <Link href={`/${categoriesMapping[id].link}`}>
                                     {categoryName}
                                 </Link>
                             </li>
