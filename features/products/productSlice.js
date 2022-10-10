@@ -1,0 +1,80 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { HYDRATE } from "next-redux-wrapper"
+import { fetchAPI } from '../../utility/strapi'
+
+export const fetchProducts = createAsyncThunk(
+    'products/fetchProducts',
+    async () => {
+
+        const {data: {data: products} } = await fetchAPI({
+            path: `products`,
+            urlParamsObject: {                 
+                populate: '*',                      
+                encodeValuesOnly: true, // prettify URL
+            },
+            options: {
+                method: 'get',
+            }
+        })
+
+
+    return products
+
+    
+    }
+)
+
+
+
+const initialState = {
+  list: []
+}
+
+export const productsSlice = createSlice({
+    name: 'products',
+    initialState,
+    reducers: {
+    },
+    extraReducers: {
+       
+        [fetchProducts.fulfilled]: (state, action) => {
+
+        state.list = action.payload
+        },
+        [HYDRATE]: (state, action) => {
+           
+            return {
+            ...state,
+            ...action.payload?.products,
+            };
+        },
+        [fetchProducts.rejected]: (state, action) => {
+            console.log('rejected action', action)
+        }
+    }
+})
+
+
+
+export const selectMenProducts = (state) => {
+    return state.products.list.filter(({ attributes: {category:{data: {id}}}}) => {
+       return id === 4
+       
+    })
+}
+
+export const selectWomenProducts = (state) => {
+    return state.products.list.filter(({ attributes: {category:{data: {id}}}}) => {
+       return id === 3
+    })
+}
+
+export const selectChildrenProducts = (state) => {
+    return state.products.list.filter(({ attributes: {category:{data: {id}}}}) => {
+       return id === 7
+    })
+}
+
+
+
+export default productsSlice.reducer
