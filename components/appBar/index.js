@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { BurgerMenu } from "./burgerMenu"
-import {Sidebar} from './sidebar'
+import {Sidebar} from './sidebarz'
 import { useOutsideClick } from "../../hooks/useOutsideClick"
 import { CartIcon } from "../cart/CartIcon"
 import { LoginIcon } from "./loginIcon"
