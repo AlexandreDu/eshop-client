@@ -58,20 +58,20 @@ export const productsSlice = createSlice({
 
 export const selectMenProducts = (state) => {
     return state.products.list.filter(({ attributes: {category:{data: {id}}}}) => {
-       return id === 4
+       return id === 1
        
     })
 }
 
 export const selectWomenProducts = (state) => {
     return state.products.list.filter(({ attributes: {category:{data: {id}}}}) => {
-       return id === 3
+       return id === 2
     })
 }
 
 export const selectChildrenProducts = (state) => {
     return state.products.list.filter(({ attributes: {category:{data: {id}}}}) => {
-       return id === 7
+       return id === 3
     })
 }
 
