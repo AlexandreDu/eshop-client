@@ -57,14 +57,14 @@ export const CartTotal = ({}) => {
                     bearer: jwt
                 })
                 setSubmitError(null)
-                console.log('statusText', statusText)
-                if (statusText) {
-                    console.log('setIsModalVisible(true)')
-                    setIsModalVisible(true)
+              
+                console.log('setIsModalVisible(true)')
+                setIsModalVisible(true)
                     
-                }
+              
 
             } catch(err) {
+                
                 setSubmitError(err)
             }
             
