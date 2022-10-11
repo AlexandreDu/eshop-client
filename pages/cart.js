@@ -3,6 +3,7 @@ import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { isEqual } from 'lodash'
 
 import storeWrapper from '../store'
+import { useSelector } from 'react-redux'
 import { fetchProducts } from '../features/products/productSlice'
 import { fetchCategories } from '../features/categories/categorySlice'
 import { selectCartProducts, selectTotalQuantity } from '../features/cart/cartSlice'
