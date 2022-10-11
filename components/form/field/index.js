@@ -2,8 +2,8 @@ import { Errormessage } from "../errorMessage"
 
 export const Field = ({type, label, placeholder = '', register, name, rules={}, errorMessage}) => {
 
+    console.log('field errorMessage', errorMessage)
 
-   
 
     return (
         <div className='my-2'>

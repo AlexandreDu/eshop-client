@@ -68,9 +68,6 @@ export default function Login({}) {
     }, [userId])
 
 
-    let requiredMessage = 'This field is required.'
-
-
     return (
         <>
             <Head>
@@ -95,7 +92,7 @@ export default function Login({}) {
                             name='password'
                             rules={passwordRules}
                             type='password'
-                            errorMessage={errors.email?.message}
+                            errorMessage={errors.password?.message}
                         />
                         
                         <p>Don&apos;t already have an account ? <Link href='/register'>Create one.</Link></p>
