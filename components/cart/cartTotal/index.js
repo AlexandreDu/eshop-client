@@ -27,6 +27,8 @@ export const CartTotal = ({}) => {
     const {jwt, userId }  = useSelector(state => state.auth, isEqual)
 
     const [isModalVisible, setIsModalVisible] = useState(false)
+
+    const [submitError, setSubmitError] = useState(null)
     
     const handleOrder = async () => {
 
@@ -39,26 +41,31 @@ export const CartTotal = ({}) => {
             return
         }
         if (userId && !isCartEmpty) {
+            try {
+                const {data: {id}, statusText} = await fetchAPI({
+                    path: `orders`,
+                    options: {
+                        method: 'post',
+                        data: {
+                          'data': {
+                            cartProductsIdQuantity,
+                            'customer_id': userId,
+                            total: cartTotalPrice
+                          }
+                        }
+                    },
+                    bearer: jwt
+                })
+                setSubmitError(null)
+                if (statusText) {
+                    setIsModalVisible(true)
+                    
+                }
 
-            const {data: {id}, statusText} = await fetchAPI({
-                path: `orders`,
-                options: {
-                    method: 'post',
-                    data: {
-                      'data': {
-                        cartProductsIdQuantity,
-                        'customer_id': userId,
-                        total: cartTotalPrice
-                      }
-                    }
-                },
-                bearer: jwt
-            })
-          
-            if (statusText) {
-                setIsModalVisible(true)
-                
+            } catch(err) {
+                setSubmitError(err)
             }
+            
         }
     }
 
@@ -93,6 +100,7 @@ export const CartTotal = ({}) => {
                 >
                     Order
                 </Button>
+                {submitError && submitError}
             </div>
             <AnimatePresence>
                 {isModalVisible && (

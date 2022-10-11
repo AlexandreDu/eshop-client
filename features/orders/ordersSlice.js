@@ -18,7 +18,6 @@ export const fetchOrders = createAsyncThunk(
             },
             bearer: jwt
         })
-        console.log('dataz', data)
         return data
     }
 )

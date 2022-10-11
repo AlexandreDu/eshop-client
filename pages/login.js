@@ -95,7 +95,9 @@ export default function Login({}) {
                             errorMessage={errors.password?.message}
                         />
                         
-                        <p>Don&apos;t already have an account ? <Link href='/register'>Create one.</Link></p>
+                        <p>Don&apos;t already have an account ? <Link href='/register'>
+                            <span className='text-purple-800 underline cursor-pointer'>Create one.</span></Link>
+                        </p>
                         
                         {submitError && <Errormessage errorMessage={submitError}/>}
                         <SubmitButton

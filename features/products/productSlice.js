@@ -23,7 +23,8 @@ export const fetchProducts = createAsyncThunk(
 
 
 const initialState = {
-  list: []
+  list: [],
+  error: null
 }
 
 export const productsSlice = createSlice({
@@ -46,6 +47,11 @@ export const productsSlice = createSlice({
         },
         [fetchProducts.rejected]: (state, action) => {
             console.log('rejected action', action)
+            if(action.error?.message) {
+                state.error = action.error.message
+                return
+            }
+            state.error = 'Something went wrong, please try again.'
         }
     }
 })

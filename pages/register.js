@@ -36,7 +36,6 @@ export default function Register({}) {
         dispatch(registerUser(payload))
     }
 
-   console.log('passwordRules', passwordRules)
 
 
     return (
@@ -45,7 +44,7 @@ export default function Register({}) {
                 <title>register</title>
             </Head>
             <PageWrapper> 
-                <div className='lg:w-1/3 block mx-auto'>
+                <div className='lg:w-1/2 block mx-auto'>
                     <Typography variant='h1'>Register</Typography>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Field 

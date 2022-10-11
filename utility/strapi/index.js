@@ -32,7 +32,7 @@ export async function fetchAPI({
         const requestUrl = `${getStrapiURL(
             `/api/${path}${queryString ? `?${queryString}` : ""}`
         )}`;
-        console.log('mergedOptions', mergedOptions)
+        console.log('FETCH API path', path)
 
         // Trigger API call
         const response = await axios({
@@ -47,18 +47,20 @@ export async function fetchAPI({
 
     } catch(err) {
         console.log('catch err', err)
-        throw err
-        // if (err.response) {
-        // // The client was given an error response (5xx, 4xx)
-        // console.log('response error', err.response.status);
-        // // if (err.response.status === 404) setError('Sorry, the page does not exist')
-        // } else if (err.request) {
-        //     // The client never received a response, and the request was never left
-        //     console.log('request error', err.request)
-        // } else {
-        //     // Anything else
-        //     console.log('other error', err.message)
-        // }
+        
+        if (err.response) {
+            // The client was given an error response (5xx, 4xx)
+            if (err?.response?.data?.error) throw err.response.data.error
+            if (err?.response?.data) throw err.response.data
+        } 
+        if (err.request) {
+            // The client never received a response, and the request was never left
+            throw err.request
+        } 
+        // Anything else
+        throw err.message
+            
+        
     }
 
 }

@@ -58,7 +58,7 @@ export const Rate = ({
             dispatch(fetchProducts())
             
         } catch(err) {
-            let message = err?.response?.data?.error?.message
+            const {message} = err
             if (message) {
                 setError(message)
                 return

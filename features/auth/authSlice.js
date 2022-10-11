@@ -6,22 +6,18 @@ export const login = createAsyncThunk(
     'auth/login',
     async (payload) => {
         const { email, password } = payload
+        console.log('email', email)
         const {data: {jwt, user}} = await fetchAPI({
             path: `auth/local`,
             options: {
                 method: 'post',
                 data: {
-                    
-                        identifier: email,
-                        password: password,
-                    }
-            
+                    identifier: email,
+                    password: password,
+                }
             }
         })
-
         return { user, jwt }
-
-    
     }
 )
 
@@ -42,20 +38,13 @@ export const registerUser = createAsyncThunk(
             options: {
                 method: 'post',
                 data: {
-               
-                    
-                        'email': email,
-                        'password': password,
-                        'username': username
-                    
+                    email,
+                    password,
+                    username  
                 }
-            
             }
         })
-        console.log('registered user', { userId, jwt, email: emailRegistered, username: usernameRegistered })
         return { userId, jwt, email: emailRegistered, username: usernameRegistered }
-
-    
     }
 )
 
@@ -87,8 +76,8 @@ export const productsSlice = createSlice({
         },
         [login.rejected]: (state, action) => {
             console.log('rejected action', action)
-            if(action?.error?.code === 'ERR_BAD_REQUEST') {
-                state.error = 'Your email or password is wrong'
+            if(action.error.message) {
+                state.error = action.error.message
                 return
             }
             state.error = 'Something went wrong, please try again.'
@@ -105,7 +94,10 @@ export const productsSlice = createSlice({
         },
         [registerUser.rejected]: (state, action) => {
             console.log('rejected action', action)
-            
+            if(action.error.message) {
+                state.error = action.error.message
+                return
+            }
             state.error = 'Something went wrong, please try again.'
         },
         [HYDRATE]: (state, action) => {
