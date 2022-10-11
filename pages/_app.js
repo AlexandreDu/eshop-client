@@ -22,7 +22,7 @@ config.autoAddCss = false
 const MyApp = ({Component, ...rest}) => {
   const {store, props, router} = storeWrapper.useWrappedStore(rest)
   const pathname = props.router?.state?.pathname || ''
-  console.log('pathname', pathname)
+  console.log('pathname is', pathname)
   return (
       
     <Provider store={store}>
