@@ -1,9 +1,12 @@
+import NextLink from 'next/link'
+import { motion, AnimatePresence, usePresence } from 'framer-motion'
+
 import { useSelector } from 'react-redux'
 import {selectProductsCount } from '../../features/cart/cartSlice'
-import { motion, AnimatePresence, usePresence } from 'framer-motion'
+
 import { FaIcon } from "../icon"
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
-import NextLink from 'next/link'
+
 
 
 export const CartIcon = ({}) => {

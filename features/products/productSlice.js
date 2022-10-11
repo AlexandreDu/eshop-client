@@ -16,11 +16,7 @@ export const fetchProducts = createAsyncThunk(
                 method: 'get',
             }
         })
-
-
     return products
-
-    
     }
 )
 

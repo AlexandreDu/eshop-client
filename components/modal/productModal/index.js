@@ -1,15 +1,20 @@
-import { useEffect, useState, forwardRef } from "react"
+import { useEffect } from "react"
 import { AnimatePresence } from 'framer-motion'
+
 import {useSelector, useDispatch} from 'react-redux'
+import { addProduct } from "../../../features/cart/cartSlice"
+
 import { Modal } from "../index"
 import { DetailedProductCard } from "../../cards"
 import { RoundedButton } from "../../buttons"
+import { useSelectTwo } from "../../../hooks/useSelectTwo"
+import { SelectTwo } from "../../select/selectTwo"
+
+import { getInteger } from "../../../utility/getInteger"
+
 import { FaIcon } from "../../icon"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
-import { addProduct } from "../../../features/cart/cartSlice"
-import { getInteger } from "../../../utility/getInteger"
-import { SelectTwo } from "../../select/selectTwo"
-import { useSelectTwo } from "../../../hooks/useSelectTwo"
+
 
 export const ProductModal = ({productSelected, setProductSelected}) => {
 
@@ -59,7 +64,7 @@ export const ProductModal = ({productSelected, setProductSelected}) => {
                     price={product?.attributes?.price}
                     id={product?.id}
                 />
-                <div className="flex">
+                <div className="flex items">
                     <SelectTwo
                         options={options}
                         onSelectClick={onSelectClick}

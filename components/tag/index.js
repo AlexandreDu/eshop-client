@@ -1,7 +1,7 @@
 export const Tag = ({children, color}) => {
    
 
-    const colors = {
+    const colorsMapping = {
         purple: {
             bgColor: 'bg-[#f9f0ff]',
             color: 'text-[#531dab]',
@@ -49,7 +49,7 @@ export const Tag = ({children, color}) => {
         }
     }
 
-    const colorObj = colors[color]
+    const colorObj = colorsMapping[color]
 
 
     return (

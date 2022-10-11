@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react"
+
 import { PaginationBox } from "./paginationBox"
 import { PageSize } from "./pageSize"
+
 export const Pagination = ({totalCount, pageSize, currentPage, handleChangePage, handleChangePageSize }) => {
 
    

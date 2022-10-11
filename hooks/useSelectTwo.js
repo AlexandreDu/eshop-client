@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState, useCallback } from "react"
 
 
 export const useSelectTwo = () => {
@@ -9,7 +9,7 @@ export const useSelectTwo = () => {
 
     const onSelectClick = useCallback(() => {
         setIsSelectTwoVisible(true)
-    })
+    }, [])
 
 
     

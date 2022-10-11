@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+
 import { FaIcon } from "../icon"
-import { faPlus } from "@fortawesome/free-solid-svg-icons"
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
 
 export const DropDown = ({ title, content}) => {
 
@@ -31,13 +32,26 @@ export const DropDown = ({ title, content}) => {
                     </AnimatePresence>
                 </div>
 
-            <motion.div layout className="self-start">
-                <FaIcon 
-                    className='ml-2 cursor-pointer'
-                    icon={faPlus}
-                    // toggle
-                    onClick={() => setIsOpen(prevState => !prevState)}
-                />
+            <motion.div 
+                layout 
+                className="self-start"
+            >
+                {isOpen ? (
+                    <FaIcon 
+                        className='ml-2 cursor-pointer'
+                        icon={faMinus}
+                        // toggle
+                        onClick={() => setIsOpen(prevState => !prevState)}
+                    />
+                ) : (
+                    <FaIcon 
+                        className='ml-2 cursor-pointer'
+                        icon={faPlus}
+                        // toggle
+                        onClick={() => setIsOpen(prevState => !prevState)}
+                    />
+                )}
+                
             </motion.div>
         </div>    
     )

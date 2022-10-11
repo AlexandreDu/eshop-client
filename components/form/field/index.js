@@ -7,7 +7,7 @@ export const Field = ({type, label, placeholder = '', register, name, rules={}, 
 
     return (
         <div className='my-2'>
-            <label className="block my-2">
+            <label className="block my-2 font-semibold">
                 {label}
             </label>
             <input 
@@ -16,7 +16,6 @@ export const Field = ({type, label, placeholder = '', register, name, rules={}, 
                 {...register(name, rules)} 
                 placeholder={placeholder}
             />
-            
             <Errormessage 
                 errorMessage={errorMessage}
             />

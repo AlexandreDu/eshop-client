@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import { selectMenProducts } from '../features/products/productSlice'
-import {useSelector} from 'react-redux'
 import { isEqual } from 'lodash'
+
+import {useSelector} from 'react-redux'
+import { selectMenProducts } from '../features/products/productSlice'
+
 import ProductsList from '../components/productsList'
 import { PageWrapper } from '../components/wrapper'
 
@@ -16,9 +18,12 @@ export default function Men({}) {
       <Head>
         <title>men clothes</title>
       </Head>
-      <ProductsList
-          products={products}
-      />
+      <PageWrapper>
+        <ProductsList
+            products={products}
+        />
+      </PageWrapper>
+      
     </>
   )
 }

@@ -1,11 +1,16 @@
 import { useState } from "react"
+
 import { useDispatch } from "react-redux"
 import { fetchProducts } from "../../../features/products/productSlice"
+
+import { Typography } from "../../typography"
+
 import { FaIcon } from "../../icon"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
+
 import {getFloor } from '../../../utility/getFloor'
 import { fetchAPI } from "../../../utility/strapi"
-import { Typography } from "../../typography"
+
 
 
 export const Rate = ({
@@ -21,9 +26,13 @@ export const Rate = ({
     let step = 1
     let yellowStarsCount = rate && getFloor(rate, step)
 
+
+
+    const [error, setError] = useState(null)
+
     const handleRating = async (id, value) => {
 
-        console.log(id, value)
+      
 
         // we calculate the new rate and ratingCount
         const newRatingCount = ratingCount + 1
@@ -42,13 +51,19 @@ export const Rate = ({
                     }
                 }
             })
+
+            setError(null)
            
             // we call the async thunk from redux to refresh the products list 
             dispatch(fetchProducts())
             
         } catch(err) {
-            console.log('err', err)
-            console.log('err', err?.response?.data?.error?.message)
+            let message = err?.response?.data?.error?.message
+            if (message) {
+                setError(message)
+                return
+            }
+            setError('something went wrong')
         }
         
 

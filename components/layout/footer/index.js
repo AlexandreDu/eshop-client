@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { motion, AnimateSharedLayout } from "framer-motion"
+import { isEqual } from "lodash"
+
 import { useSelector } from "react-redux"
 import { selectCategories } from "../../../features/categories/categorySlice"
+import { selectMenProducts, selectWomenProducts, selectChildrenProducts } from "../../../features/products/productSlice"
+
 import { DropDown } from "../../dropDown"
-import { selectMenProducts } from "../../../features/products/productSlice"
-import { selectWomenProducts } from "../../../features/products/productSlice"
-import { selectChildrenProducts } from "../../../features/products/productSlice"
-import { isEqual } from "lodash"
+
 
 export const Footer = () => {
 
@@ -32,7 +33,7 @@ export const Footer = () => {
     ]
  
     return (
-        <motion.footer layout className="bg-slate-400 text-white text-center p-[1rem]">
+        <footer className="bg-slate-400 text-white text-center p-[1rem]">
             <AnimateSharedLayout>
                 <ul className="block min-h-[13rem]">
         
@@ -54,6 +55,6 @@ export const Footer = () => {
                   
                 </ul>
             </AnimateSharedLayout>
-        </motion.footer>    
+        </footer>    
     )
 }

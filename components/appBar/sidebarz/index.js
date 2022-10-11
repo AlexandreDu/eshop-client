@@ -1,91 +1,99 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectCategories } from "../../../features/categories/categorySlice";
-import { motion } from "framer-motion"
 import Link from "next/link";
-import { Typography } from "../../typography";
+import { motion } from "framer-motion"
 
+import { useSelector } from "react-redux"
+import { selectCategories } from "../../../features/categories/categorySlice"
+
+import { SidebarLink } from "./sidebarLink"
+
+import { categoriesMapping } from "../../../data/categories"
 
 export const Sidebar = ({showSideBar}) => {
 
     const categories = useSelector(selectCategories)
 
-    const categoriesMapping = {
-        "2": {
-            title: 'women',
-            link: 'women'
-        },
-        "1": {
-            title: 'men',
-            link: 'men'
-        },
-        "3": {
-            title:'kids',
-            link: 'children'
-        }
-    }
-
-    const divVariants = {
-        hidden: {
-            x:'100%'
-            
-        },
-        show: {
-            x: '-100%'
-        }
-    }
-
-
+  
     const sidebarVariants = {
         hidden: {
-            x:'200%'
+            zIndex: -1,
+            opacity: 0,
+
             
         },
         show: {
-            x: '0'
+            opacity: 1,
+            zIndex: 10,
+            transition: {
+                when: 'beforeChildren',
+                
+              },
+            
         }
     }
-    
+
+    const sidebarItemsVariants = {
+        hidden: {
+            y: -100,
+            opacity: 0,
+            transition: {
+                duration: 0.2
+            }
+        },
+        show: {
+            y: 0,
+            scale: 1,
+            opacity: 1
+           
+        }
+    }
+
+  
 
     return (
         <>
-            <motion.div
-                className="fixed top-[5rem] bottom-0 right-0 z-10 w-screen bg-purple-500"
-                animate={showSideBar ? 'show' : 'hidden' }
-                variants={divVariants}
-                transition={{duration: 0.5, delay: 0.3}}
-            ></motion.div>
-
-            <motion.div
-                className="fixed top-[5rem] bottom-0 right-0 z-10 w-full bg-white"
+            <motion.nav
+                className="fixed top-[5rem] bottom-0 right-0 z-0 w-full bg-purple-500"
+                initial={{opacity: 0, zIndex: 0}}
                 animate={showSideBar ? 'show' : 'hidden' }
                 variants={sidebarVariants}
-                transition={{duration:0.5, delay: 0.3}}
+                // exit={{ opacity: 0 }}
+                transition={{duration: 0.5}}
+           
+         
             >
-                <ul className="h-full flex flex-col items-center justify-evenly">
-                    <Link href={`/`}>
-                        <li className='cursor-pointer'>
-                            <Typography component={'span'} variant={'h1'}>ALL PRODUCTS</Typography>
-                        </li>
-                    </Link>
+                <motion.ul 
+                    className="h-full flex flex-col items-center justify-evenly"
+                    variants={sidebarItemsVariants}
+                    initial={{zIndex: 0}}
+                >
+                    <SidebarLink 
+                        label={'ALL PRODUCTS'}
+                        href={'/'}
+                        animate={showSideBar ? 'show' : 'hidden' }
+                        initial={{zIndex: 0}}
+                        variants={sidebarItemsVariants}
+                    />
                         
                     {categories.map(({id}) => {
                         if(!categoriesMapping[id]) return
-                        let categoryName = <Typography component={'span'} variant={'h1'}>{categoriesMapping[id].title.toUpperCase()}</Typography>
                     
                         return (
+                            <SidebarLink 
+                                key={id}
+                                label={categoriesMapping[id].title.toUpperCase()}
+                                href={categoriesMapping[id].link}
+                                animate={showSideBar ? 'show' : 'hidden' }
+                                initial={{zIndex: 0}}
+                                variants={sidebarItemsVariants}
+                            />
                             
-                            <li key={id} className=''>
-                                <Link href={`/${categoriesMapping[id].link}`}>
-                                    {categoryName}
-                                </Link>
-                            </li>
                 
                         )
                     })}
                   
-                </ul>
-            </motion.div>
+                </motion.ul>
+            </motion.nav>
         </>
         
             

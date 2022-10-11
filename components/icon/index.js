@@ -1,6 +1,9 @@
+import { forwardRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-export const FaIcon = ({icon, className, onClick, onMouseEnter, onMouseLeave}) => {
+
+
+export const FaIcon = forwardRef(({icon, className, onClick, onMouseEnter, onMouseLeave}, ref) => {
     
    
     return (
@@ -10,8 +13,8 @@ export const FaIcon = ({icon, className, onClick, onMouseEnter, onMouseLeave}) =
                 onClick={onClick}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
+                ref={ref}
             />
     )
-}
-
+})
 

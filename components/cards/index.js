@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive'
+
 import { Rate } from './rate'
 import { RateCount } from "./rate"
 import { ProductTitle } from './productTitle'
 import { Category } from "./category"
 import { ResponsiveImage } from '../image'
-import { ellipsis } from '../../utility/ellipsis'
+
+
 import { FaIcon } from '../icon'
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons"
-import { useMediaQuery } from 'react-responsive'
-import { getStrapiURL } from '../../utility/strapi'
+
+import { ellipsis } from '../../utility/ellipsis'
 
 
 const ProductCard = ({
@@ -22,7 +25,7 @@ const ProductCard = ({
     onClick
 }) => {
 
-    console.log('image path', image)
+  
   
 
     return (
@@ -50,7 +53,6 @@ const ProductCard = ({
                     id={id}
                     rate={rate} 
                     ratingCount={ratingCount}
-                    // handleRating={handleRating}
                 />
                 <RateCount 
                     ratingCount={ratingCount}
@@ -76,8 +78,9 @@ const DetailedProductCard = ({
 
     const isSmOrUp = useMediaQuery({
         query: '(min-width: 640px)'
-      })
+    })
 
+  
     
     let titleLength = typeof description === 'string' && title.length
     let descriptionMaxLength = 60 - titleLength

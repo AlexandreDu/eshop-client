@@ -1,15 +1,17 @@
 import Head from 'next/head'
-import { selectWomenProducts } from '../features/products/productSlice'
-import {useSelector} from 'react-redux'
 import { isEqual } from 'lodash'
-import ProductsList from '../components/productsList'
+
+import {useSelector} from 'react-redux'
+import { selectWomenProducts } from '../features/products/productSlice'
+
 import { PageWrapper } from '../components/wrapper'
+import ProductsList from '../components/productsList'
+
 
 export default function Women({}) {
   
   // isEqual : see cart page 
   const products = useSelector(selectWomenProducts, isEqual)
-
 
   return (
     <>
@@ -21,6 +23,8 @@ export default function Women({}) {
             products={products}
         />
       </PageWrapper>
+      
+
     </>
   )
 }

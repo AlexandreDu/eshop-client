@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import { SelectTwo } from '../select/selectTwo'
 import { useSelectTwo } from '../../hooks/useSelectTwo'
 import { useSort } from '../../hooks/useSort'
@@ -6,6 +7,7 @@ import { ProductCard } from '../cards'
 import { ProductModal } from '../modal/productModal'
 import { Pagination } from '../pagination'
 import { usePagination } from '../../hooks/usePagination'
+
 import { FaIcon } from '../icon'
 import { faSort } from "@fortawesome/free-solid-svg-icons"
 
@@ -26,8 +28,6 @@ export default function ProductsList({products}) {
   const sortedProducts = useSort(products, sortValue)
 
   const {currentPage, handleChangePage, pageSize, handleChangePageSize, rangeList} = usePagination(sortedProducts)
-
-
 
   const [productSelected, setProductSelected] = useState(null)
   

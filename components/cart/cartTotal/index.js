@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
-import { selectTotalPrice } from '../../../features/cart/cartSlice'
 import { isEqual } from 'lodash'
+import { AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/router'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { selectTotalPrice, emptyCart } from '../../../features/cart/cartSlice'
+
 import { Button } from '../../buttons'
 import { Modal } from '../../modal'
+import { Typography } from '../../typography'
+
+import { FaIcon } from '../../icon'
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
+
 import { fetchAPI } from '../../../utility/strapi'
 
 
 export const CartTotal = ({}) => {
+    const dispatch = useDispatch()
     
     const cartTotalPrice = useSelector(selectTotalPrice)
     const cartProductsIdQuantity = useSelector((state) => state.cart.list, isEqual)
@@ -22,7 +30,7 @@ export const CartTotal = ({}) => {
     
     const handleOrder = async () => {
 
-        if(!userId) {
+        if (!userId) {
             router.push({
                 pathname: '/login',
                 query: {orderAttempt: true}
@@ -30,9 +38,9 @@ export const CartTotal = ({}) => {
 
             return
         }
-        if(userId && !isCartEmpty) {
+        if (userId && !isCartEmpty) {
 
-            const {data, statusText} = await fetchAPI({
+            const {data: {id}, statusText} = await fetchAPI({
                 path: `orders`,
                 options: {
                     method: 'post',
@@ -47,8 +55,10 @@ export const CartTotal = ({}) => {
                 bearer: jwt
             })
           
-            if(statusText) setIsModalVisible(true)
-            console.log('statusText',statusText)
+            if (statusText) {
+                setIsModalVisible(true)
+                
+            }
         }
     }
 
@@ -60,6 +70,7 @@ export const CartTotal = ({}) => {
             router.push({
                 pathname: '/'   
             })
+            dispatch(emptyCart())
             }, 1500)
         }
 
@@ -67,10 +78,12 @@ export const CartTotal = ({}) => {
 
     }, [isModalVisible])
 
+
+
     
     return (
         <>
-            <motion.div layout={"position"} className='sticky bottom-0 lg:static lg:block lg:grow lg:self-start lg:rounded-sm bg-white lg:ml-4 p-4'>
+            <div className='sticky bottom-0 lg:static lg:block lg:grow lg:self-start lg:rounded-sm bg-white lg:ml-4 p-4'>
                 <h1 className='font-semibold text-2xl inline'>Total : </h1>
                 <span>{cartTotalPrice} €</span>
                 <Button 
@@ -80,13 +93,20 @@ export const CartTotal = ({}) => {
                 >
                     Order
                 </Button>
-            </motion.div>
+            </div>
             <AnimatePresence>
                 {isModalVisible && (
                     <Modal
                         setIsVisible={setIsModalVisible}
                     >
-                        Thank you !
+                        <div className="flex justify-center items-center">
+                            <FaIcon 
+                                className={`mr-4 text-purple-500`}
+                                icon={faCheck}
+                            />
+                            <Typography component={'span'}>Thanks for Your purchase !</Typography>
+                        </div>
+
                     </Modal>
                 )}
             </AnimatePresence>

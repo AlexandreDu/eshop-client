@@ -1,8 +1,10 @@
+import { motion, usePresence } from 'framer-motion'
+
 import { useDispatch } from 'react-redux'
 import { decreaseQuantity, increaseQuantity, removeProduct } from '../../../features/cart/cartSlice'
-import { motion, usePresence } from 'framer-motion'
+
 import { ResponsiveImage } from '../../../components/image'
-import { getStrapiURL } from '../../../utility/strapi'
+
 import { FaIcon } from '../../icon'
 import { faPlus, faMinus, faTrash } from "@fortawesome/free-solid-svg-icons"
 

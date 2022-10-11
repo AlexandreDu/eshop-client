@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import { selectChildrenProducts } from '../features/products/productSlice'
-import {useSelector} from 'react-redux'
 import { isEqual } from 'lodash'
+
+import {useSelector} from 'react-redux'
+import { selectChildrenProducts } from '../features/products/productSlice'
+
 import ProductsList from '../components/productsList'
 import { PageWrapper } from '../components/wrapper'
 
@@ -16,12 +18,11 @@ export default function Women({}) {
       <Head>
         <title>children clothes</title>
       </Head>
-
-      <ProductsList
-          products={products}
-      />
-
-      
+      <PageWrapper>
+        <ProductsList
+            products={products}
+        />
+      </PageWrapper>
     </>
   )
 }

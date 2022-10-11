@@ -55,13 +55,18 @@ export const cartSlice = createSlice({
       if(index === -1) return
       
       state.list.splice(index, 1)
+    },
+    emptyCart: (state, action) => {
+        
+      state.list = []
+
     }
     
   }
 })
 
 
-export const { addProduct, increaseQuantity, decreaseQuantity, removeProduct } = cartSlice.actions
+export const { addProduct, increaseQuantity, decreaseQuantity, removeProduct, emptyCart } = cartSlice.actions
 
 export const selectProductsCount = (state) => {
     let productsCount = 0

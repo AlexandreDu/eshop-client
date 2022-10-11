@@ -10,7 +10,7 @@ export const Button = ({children, fullWidth = false, extraClass, onClick, disabl
 
     return (
         <motion.button 
-            whileTap={!!!disabled ? { scale: 0.5 } : {}}
+            whileTap={!!!disabled ? { scale: 0.8 } : {}}
             onClick={onClick} 
             className={className}
             disabled={disabled}

@@ -6,17 +6,17 @@ const variantsMapping = {
     body1: {component: "p", className: ''},
     body2: {component: "span", className: 'text-md'},
     body3: {component: "span", className: 'text-sm'},
-    error: {component: "p", className: 'text-red-500'},
+    error: {component: "p", className: 'text-purple-500'},
 }
 
-export const Typography = ({children, variant, component, ml, mr }) => {
+export const Typography = ({children, variant, component, ml, mr, color }) => {
 
 
     let Component = variant ? variantsMapping[variant]['component'] : 'p'
     if(component) Component = component
 
     let className = `${variant ? variantsMapping[variant]['className'] : variantsMapping['body1']['className']} `
-
+    if(color) className += ` ${color}`
     // margins
     if(ml) className += ` ml-${ml}`
     if(mr) className += ` mr-${mr}`

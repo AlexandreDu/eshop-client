@@ -16,11 +16,7 @@ export const fetchCategories = createAsyncThunk(
                 method: 'get',
             }
         })
-
-
     return categories
-
-    
     }
 )
 
@@ -58,7 +54,6 @@ export const categoriesSlice = createSlice({
 export const selectCategories = (state) => {
     return state.categories.list
   }
-
 
 
 

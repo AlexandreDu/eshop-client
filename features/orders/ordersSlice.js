@@ -3,7 +3,6 @@ import { HYDRATE } from "next-redux-wrapper"
 import { fetchAPI } from '../../utility/strapi'
 
 
-
 export const fetchOrders = createAsyncThunk(
     'orders/user',
     async (payload) => {
@@ -23,7 +22,6 @@ export const fetchOrders = createAsyncThunk(
         return data
     }
 )
-
 
 
 const initialState = {

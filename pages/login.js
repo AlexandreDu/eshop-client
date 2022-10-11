@@ -1,18 +1,26 @@
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useDispatch, useSelector } from 'react-redux'
-import { login } from '../features/auth/authSlice'
+
 import { useForm } from "react-hook-form"
 import { Field } from '../components/form/field'
+import { Errormessage } from '../components/form/errorMessage'
+import fieldRules from '../data/fieldRules/index'
+
+import { isEqual } from 'lodash'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../features/auth/authSlice'
+
 import { SubmitButton } from '../components/buttons'
 import { Typography } from '../components/typography'
-import { isEqual } from 'lodash'
+import { PageWrapper } from '../components/wrapper'
 
 
 export default function Login({}) {
 
+    const {email: emailRules, password: passwordRules} = fieldRules
 
     const router = useRouter() 
 
@@ -49,12 +57,12 @@ export default function Login({}) {
             return
         }
         
-        // if the user is logged in and not coming from the cart page, we push the profile path
+        // if the user is logged in and not coming from the cart page, we push the / path
         if(userId && router.query?.prevPath !== '/cart') {
             router.push({ 
-                pathname: '/profile',
+                pathname: '/',
                 query: {prevPath: '/login'}
-            }, '/profile')
+            }, '/')
             return
         }
     }, [userId])
@@ -68,46 +76,40 @@ export default function Login({}) {
             <Head>
                 <title>login</title>
             </Head>
-            <div className='lg:w-1/3 block mx-auto'>
-                <Typography variant='h1'>Login</Typography>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <Field 
-                        label='Email'
-                        placeholder='john.doe@app.com'
-                        register={register}
-                        name='email'
-                        rules={{
-                            required: requiredMessage, 
-                            minLength: {
-                            value: 4, 
-                            message: 'This field must contain at least 4 characters'
-                            },
-                        }}
-                        type='email'
-                        errorMessage={errors.email?.message}
-                    />
-                    <Field 
-                        label='Password'
-                        register={register}
-                        name='password'
-                        rules={{
-                            required: requiredMessage, 
-                        }}
-                        type='password'
-                        errorMessage={errors.email?.message}
-                    />
-                    
+            <PageWrapper>
+                <div className='lg:w-1/2 block mx-auto'>
+                    <Typography variant='h1'>Login</Typography>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Field 
+                            label='Email'
+                            placeholder='john.doe@app.com'
+                            register={register}
+                            name='email'
+                            rules={emailRules}
+                            type='email'
+                            errorMessage={errors.email?.message}
+                        />
+                        <Field 
+                            label='Password'
+                            register={register}
+                            name='password'
+                            rules={passwordRules}
+                            type='password'
+                            errorMessage={errors.email?.message}
+                        />
+                        
                         <p>Don&apos;t already have an account ? <Link href='/register'>Create one.</Link></p>
-                    
-                    
-                    <p>{submitError}</p>
-                    <SubmitButton
-                        fullWidth
-                    >
-                        Login
-                    </SubmitButton>
-                </form>
-            </div>
+                        
+                        {submitError && <Errormessage errorMessage={submitError}/>}
+                        <SubmitButton
+                            fullWidth
+                        >
+                            Login
+                        </SubmitButton>
+                    </form>
+                </div>
+            </PageWrapper>
+            
         </>
     )
 

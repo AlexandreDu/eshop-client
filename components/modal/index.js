@@ -1,7 +1,8 @@
-import { forwardRef } from 'react'
+import { motion, usePresence } from 'framer-motion'
+
 import { FaIcon } from '../icon'
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
-import { motion, usePresence } from 'framer-motion'
+
 
 // Modal must be wrapped by AnimatePresence in order to execute the exit animation before removing it from the dom after the animation is complete 
 export const Modal = ({ setIsVisible, children}) => {
@@ -17,7 +18,6 @@ export const Modal = ({ setIsVisible, children}) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onAnimationComplete={() => {
-                console.log('animation completed')
                 !isPresent && safeToRemove()
             }}
             className='bg-black/70 fixed top-[5rem] bottom-0 left-0 right-0 flex justify-center items-center'
