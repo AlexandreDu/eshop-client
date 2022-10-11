@@ -6,7 +6,7 @@ export const login = createAsyncThunk(
     'auth/login',
     async (payload) => {
         const { email, password } = payload
-        console.log('email', email)
+      
         const {data: {jwt, user}} = await fetchAPI({
             path: `auth/local`,
             options: {
@@ -75,7 +75,7 @@ export const productsSlice = createSlice({
             state.username = user?.username
         },
         [login.rejected]: (state, action) => {
-            console.log('rejected action', action)
+      
             if(action.error.message) {
                 state.error = action.error.message
                 return
@@ -93,20 +93,21 @@ export const productsSlice = createSlice({
             state.username = username
         },
         [registerUser.rejected]: (state, action) => {
-            console.log('rejected action', action)
+  
             if(action.error.message) {
                 state.error = action.error.message
                 return
             }
             state.error = 'Something went wrong, please try again.'
         },
-        [HYDRATE]: (state, action) => {
-           
-            return {
-            ...state,
-            ...action.payload?.auth,
-            };
-        },
+        // the payload of the action contains the state at compile time, so the auth payload is empty. A solution would be to separate server and client state
+        // [HYDRATE]: (state, action) => {
+        
+        //     return {
+        //     ...state,
+        //     ...action.payload?.auth,
+        //     };
+        // },
         
     }
 })

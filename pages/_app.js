@@ -42,44 +42,6 @@ const MyApp = ({Component, ...rest}) => {
   )
 }
 
-// class MyApp extends App {
 
-//   static getInitialProps = storeWrapper.getInitialAppProps(store => async context => {
-
-//     // await store.dispatch(fetchProducts())
-//     // await store.dispatch(fetchCategories())
-    
-
-//     return {
-//         pageProps: {
-//             ...(await App.getInitialProps(context)).pageProps,
-
-//         },
-//     };
-
-//   })
-//   render() {
-//     const {Component, pageProps, router} = this.props;
-    
-//     const pathname = router?.state?.pathname || ''
-//     console.log('pathname', pathname)
-//     return (
-//       <>
-//         <Head>
-//             <meta name="viewport" content="initial-scale=1, width=device-width" />
-//           </Head>
-//         <Layout>
-//           {/* page transition */}
-//           <AnimatePresence
-//             exitBeforeEnter 
-//             initial={false}
-//           >
-//             <Component key={pathname} {...pageProps}/>
-//           </AnimatePresence>
-//         </Layout>
-//       </>
-//     )
-//   } 
-// }
 
 export default MyApp

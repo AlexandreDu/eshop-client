@@ -21,6 +21,6 @@ const makeStore= () => configureStore({
 
 
 
-const storeWrapper = createWrapper(makeStore, {debug: false});
+const storeWrapper = createWrapper(makeStore, {debug: process.env.NODE_ENV === 'development'});
 export default storeWrapper
 
