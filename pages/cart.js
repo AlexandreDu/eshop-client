@@ -2,8 +2,11 @@ import Head from 'next/head'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { isEqual } from 'lodash'
 
-import { useSelector } from 'react-redux'
+import storeWrapper from '../store'
+import { fetchProducts } from '../features/products/productSlice'
+import { fetchCategories } from '../features/categories/categorySlice'
 import { selectCartProducts, selectTotalQuantity } from '../features/cart/cartSlice'
+
 
 import { CartItem } from '../components/cart/cartItem'
 import { CartTotal } from '../components/cart/cartTotal'
@@ -54,6 +57,11 @@ export default function Cart({}) {
 }
 
 
+
+export const getStaticProps = storeWrapper.getStaticProps( store => async ({preview}) => {
+  await store.dispatch(fetchProducts())
+  await store.dispatch(fetchCategories())
+})
 
 
 

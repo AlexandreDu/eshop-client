@@ -16,11 +16,11 @@ const makeStore= () => configureStore({
       auth: authSliceReducer,
       orders: ordersSliceReducer
    },
-   // devTools: process.env.NODE_ENV === 'development'
+   devTools: process.env.NODE_ENV === 'development'
 })
 
 
 
-const storeWrapper = createWrapper(makeStore);
+const storeWrapper = createWrapper(makeStore, {debug: true});
 export default storeWrapper
 

@@ -35,8 +35,8 @@ export const productsSlice = createSlice({
     extraReducers: {
        
         [fetchProducts.fulfilled]: (state, action) => {
-
-        state.list = action.payload
+            console.log('action.payload.length', action.payload.length)
+            state.list = action.payload
         },
         [HYDRATE]: (state, action) => {
            
