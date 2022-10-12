@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Live version
+https://eshop-client-ten.vercel.app
 
-## Getting Started
 
-First, run the development server:
+## Built With
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Front-end:
+- next@12.2.5 (react@18.2.0)
+- @reduxjs/toolkit@1.8.5
+- next-redux-wrapper@8.0.0
+- tailwindcss@3.1.8
+- framer-motion@7.2.1
+- react-hook-form@7.36.1
+- axios@0.27.2
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Back-end:
+- Strapi
+- PostgreSQL
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## About The Project
+The back-end has been built with the headless CMS Strapi and uses psotgreSQL.
+The front-end been built with next JS and Redux in order to take advantage of the static generation page of getStaticProp, together with redux to share global state among the pages and components at compile time.
+This is the first time I'm using Framer motion, and I think this library integrates really nicely with React / next.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Front-end is deployed on vercel and back-end on Railway.
 
-## Learn More
+Features: 
+- Cart
+- Sort products by several criteria
+- Pagination and page size
+- Products rating
+- Simulating order
+- Profile page with orders
+- Login and register page
 
-To learn more about Next.js, take a look at the following resources:
+## Contact
+If you want to contact me : alexandre.dutay@outlook.fr
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
