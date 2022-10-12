@@ -70,7 +70,7 @@ export const CartItem = ({product}) => {
                 <div>Price : {totalProductPrice}</div>
             </div>
             <FaIcon 
-                className='ml-2 cursor-pointer'
+                className='ml-2 cursor-pointer text-lg'
                 icon={faTrash}
                 onClick={() => handleRemove(product?.id)}
             />

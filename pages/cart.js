@@ -45,9 +45,7 @@ export default function Cart({}) {
                   })}
                 </AnimatePresence>
               </div>
-              
               <CartTotal />
-
             </div>
           </motion.section>
         </LayoutGroup>
