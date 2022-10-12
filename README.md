@@ -23,7 +23,7 @@ The back-end has been built with the headless CMS Strapi and uses psotgreSQL.
 The front-end been built with next JS and Redux in order to take advantage of the static generation page of getStaticProp, together with redux to share global state among the pages and components at compile time.
 This is the first time I'm using Framer motion, and I think this library integrates really nicely with React / next.
 
-Front-end is deployed on vercel and back-end on Railway.
+Front-end is deployed on vercel, back-end on Railway and images on Cloudinary.
 
 Features: 
 - Cart
