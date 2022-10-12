@@ -29,7 +29,7 @@ export default function Cart({}) {
       </Head>
       <PageWrapper>
         <LayoutGroup>
-          <motion.section layout className='w-full  mx-auto lg:p-4 lg:rounded-lg lg:bg-slate-200 '>
+          <section className='w-full  mx-auto lg:p-4 lg:rounded-lg  '>
             <div className={`flex flex-col sm:flex-row`}>
               <div className='grow-[2] bg-white p-4 lg:rounded-sm'>
                 <motion.h1 layout='position' className='font-semibold text-2xl text-purple-500'>My cart ({cartTotalQuantity} item{cartTotalQuantity > 1 ? 's' : ''})</motion.h1>
@@ -47,7 +47,7 @@ export default function Cart({}) {
               </div>
               <CartTotal />
             </div>
-          </motion.section>
+          </section>
         </LayoutGroup>
       </PageWrapper>
       

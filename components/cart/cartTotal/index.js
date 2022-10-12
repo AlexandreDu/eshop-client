@@ -57,11 +57,7 @@ export const CartTotal = ({}) => {
                     bearer: jwt
                 })
                 setSubmitError(null)
-              
-                console.log('setIsModalVisible(true)')
                 setIsModalVisible(true)
-                    
-              
 
             } catch(err) {
                 
@@ -92,7 +88,7 @@ export const CartTotal = ({}) => {
     
     return (
         <>
-            <div className='sticky bottom-0 lg:static lg:block lg:grow lg:self-start lg:rounded-sm bg-white lg:ml-4 p-4'>
+            <div className='sticky bottom-0 lg:static lg:block lg:w-[33%] lg:self-start lg:rounded-sm bg-white lg:ml-4 lg:bg-slate-200 p-4'>
                 <h1 className='font-semibold text-2xl inline'>Total : </h1>
                 <span>{cartTotalPrice} €</span>
                 <Button 

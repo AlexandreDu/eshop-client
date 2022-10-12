@@ -48,10 +48,9 @@ export default function ProductsList({products}) {
   )
   
 
-
   return (
     <>
-      <div className='text-right'>
+      <div className='flex justify-end'>
         <SelectTwo 
           options={sortOptions}
           onSelectClick={onSelectClick}
