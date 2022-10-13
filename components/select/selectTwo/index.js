@@ -9,7 +9,7 @@ export const SelectTwo = ({options, onSelectClick, title, onOptionClick, isVisib
     return (
         
         <div
-            className='min-w-[2rem] my-1 cursor-pointer border-2 leading-2 p-2 border-purple-500 rounded-lg max-w-fit'
+            className='min-w-[2rem] my-1 cursor-pointer border-2 leading-2 p-2 border-purple-500 rounded-md max-w-fit'
             onClick={onSelectClick} 
         >
             <span>{title}</span>

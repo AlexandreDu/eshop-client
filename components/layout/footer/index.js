@@ -33,7 +33,7 @@ export const Footer = () => {
     ]
  
     return (
-        <footer className="bg-purple-800 text-white text-center p-[1rem]">
+        <footer className="bg-purple-800 text-white text-center">
             <AnimateSharedLayout>
                 <ul className="flex flex-col justify-around ">
         

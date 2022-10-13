@@ -9,6 +9,7 @@ import { selectChildrenProducts } from '../features/products/productSlice'
 
 import ProductsList from '../components/productsList'
 import { PageWrapper } from '../components/wrapper'
+import { Typography } from '../components/typography'
 
 export default function Women({}) {
   
@@ -19,11 +20,12 @@ export default function Women({}) {
   return (
     <>
       <Head>
-        <title>children clothes</title>
+        <title>kids clothes</title>
       </Head>
       <PageWrapper>
         <ProductsList
             products={products}
+            title={<Typography variant='h1'>{'For kids'.toUpperCase()}</Typography>}
         />
       </PageWrapper>
     </>

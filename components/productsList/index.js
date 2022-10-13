@@ -11,7 +11,7 @@ import { usePagination } from '../../hooks/usePagination'
 import { FaIcon } from '../icon'
 import { faSort } from "@fortawesome/free-solid-svg-icons"
 
-export default function ProductsList({products}) {
+export default function ProductsList({products, title}) {
 
   
   const {isSelectTwoVisible, onSelectClick, onOptionClick, selectedValue: sortValue, selectedLabel: sortLabel} = useSelectTwo()
@@ -37,10 +37,10 @@ export default function ProductsList({products}) {
   }
   
 
-  let title = (
+  let sortTitle = (
     <>
       <FaIcon 
-          className='ml-2 cursor-pointer'
+          className='ml-2 cursor-pointer text-purple-800'
           icon={faSort}
       />
       {sortLabel ? ` sorted by ${sortLabel }`: ' sort by'}
@@ -54,12 +54,18 @@ export default function ProductsList({products}) {
         <SelectTwo 
           options={sortOptions}
           onSelectClick={onSelectClick}
-          title={title}
+          title={sortTitle}
           onOptionClick={onOptionClick}
           isVisible={isSelectTwoVisible}
         />
       </div>
-      <div className='flex flex-wrap justify-start'>
+      
+        {title && (
+          title
+        )}
+   
+      
+      <div className='flex flex-wrap justify-between'>
         {rangeList && rangeList.map( product => (
         <ProductCard 
             key={product?.id}

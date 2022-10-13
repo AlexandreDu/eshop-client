@@ -9,6 +9,7 @@ import { selectMenProducts } from '../features/products/productSlice'
 
 import ProductsList from '../components/productsList'
 import { PageWrapper } from '../components/wrapper'
+import { Typography } from '../components/typography'
 
 export default function Men({}) {
   
@@ -24,6 +25,7 @@ export default function Men({}) {
       <PageWrapper>
         <ProductsList
             products={products}
+            title={<Typography variant='h1'>{'Men’s fashion & accessories'.toUpperCase()}</Typography>}
         />
       </PageWrapper>
       

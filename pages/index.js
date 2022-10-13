@@ -10,7 +10,7 @@ import { PageWrapper } from '../components/wrapper'
 import ProductsList from '../components/productsList'
 import { Typography } from '../components/typography'
 
-export default function Home({}) {
+export default function Home() {
   
 
 
@@ -21,12 +21,13 @@ export default function Home({}) {
   return (
     <>
       <Head>
-        <title>all products</title>
+        <title>all clothes</title>
       </Head>
       <PageWrapper>
-        <Typography variant='h1'>Discover all our products</Typography>
+        
         <ProductsList 
           products={products}
+          title={<Typography variant='h1'>{'All the latest styles'.toUpperCase()}</Typography>}
         />
       </PageWrapper>
     </>

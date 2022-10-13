@@ -30,7 +30,7 @@ const ProductCard = ({
 
     return (
         <div 
-            className='w-[49%] sm:w-[32.3%] xl:w-[24%] select-none relative mb-[1rem] mx-[0.5%] cursor-pointer'
+            className='w-[49%] sm:w-[32.3%] xl:w-[24%] select-none relative mb-[1rem]  cursor-pointer'
         >
             <div 
                 className=''
