@@ -50,6 +50,10 @@ export default function ProductsList({products, title}) {
 
   return (
     <>
+    
+      {title && (
+        title
+      )}
       <div className='flex justify-end'>
         <SelectTwo 
           options={sortOptions}
@@ -59,12 +63,6 @@ export default function ProductsList({products, title}) {
           isVisible={isSelectTwoVisible}
         />
       </div>
-      
-        {title && (
-          title
-        )}
-   
-      
       <div className='flex flex-wrap justify-between'>
         {rangeList && rangeList.map( product => (
         <ProductCard 
