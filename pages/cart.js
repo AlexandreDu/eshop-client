@@ -32,7 +32,7 @@ export default function Cart({}) {
           <section className='w-full  mx-auto lg:p-4 lg:rounded-lg  '>
             <div className={`flex flex-col sm:flex-row`}>
               <div className='grow-[2] bg-white p-4 lg:rounded-sm'>
-                <motion.h1 layout='position' className='font-semibold text-2xl text-purple-500'>My cart ({cartTotalQuantity} item{cartTotalQuantity > 1 ? 's' : ''})</motion.h1>
+                <motion.h1 layout='position' className='font-semibold text-2xl text-purple-800'>My cart ({cartTotalQuantity} item{cartTotalQuantity > 1 ? 's' : ''})</motion.h1>
                 {/* AnimatePresence works by detecting when direct children are removed from the React tree. */}
                 <AnimatePresence>
                   {cartListWithDetails.map(product => {

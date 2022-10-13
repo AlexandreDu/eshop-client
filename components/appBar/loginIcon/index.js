@@ -20,7 +20,7 @@ export const LoginIcon = ({}) => {
     return (
         <Link href={`${isLoggedIn ? '/profile' : '/login' }`} passHref>
             <FaIcon 
-                className={`mr-4 cursor-pointer ${isLoggedIn ? 'text-purple-500' : ''}`}
+                className={`mr-4 cursor-pointer ${isLoggedIn ? 'text-purple-800' : ''}`}
                 icon={faUser}
             />
         </Link>

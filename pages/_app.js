@@ -6,8 +6,6 @@ import {Layout } from '../components/layout'
 
 import { Provider } from 'react-redux'
 import storeWrapper from "../store"
-import { fetchProducts } from '../features/products/productSlice';
-import { fetchCategories } from '../features/categories/categorySlice';
 
 import '../styles/globals.css'
 
@@ -22,7 +20,7 @@ config.autoAddCss = false
 const MyApp = ({Component, ...rest}) => {
   const {store, props, router} = storeWrapper.useWrappedStore(rest)
   const pathname = props.router?.state?.pathname || ''
-  console.log('pathname is', pathname)
+
   return (
       
     <Provider store={store}>

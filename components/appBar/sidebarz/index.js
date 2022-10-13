@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion"
 
 import { useSelector } from "react-redux"
@@ -10,6 +10,8 @@ import { SidebarLink } from "./sidebarLink"
 import { categoriesMapping } from "../../../data/categories"
 
 export const Sidebar = ({showSideBar}) => {
+
+    const router = useRouter()
 
     const categories = useSelector(selectCategories)
 
@@ -47,13 +49,14 @@ export const Sidebar = ({showSideBar}) => {
            
         }
     }
+    
 
-  
+   
 
     return (
         <>
             <motion.nav
-                className="fixed top-[5rem] bottom-0 right-0 z-0 w-full bg-purple-500"
+                className="fixed top-[5rem] bottom-0 right-0 z-0 w-full bg-purple-800"
                 initial={{opacity: 0, zIndex: 0}}
                 animate={showSideBar ? 'show' : 'hidden' }
                 variants={sidebarVariants}
@@ -73,11 +76,12 @@ export const Sidebar = ({showSideBar}) => {
                         animate={showSideBar ? 'show' : 'hidden' }
                         initial={{zIndex: 0}}
                         variants={sidebarItemsVariants}
+                        isActive={router.pathname === "/"}
                     />
                         
                     {categories.map(({id}) => {
                         if(!categoriesMapping[id]) return
-                    
+                        let pathname = router.pathname.replace('/', '')
                         return (
                             <SidebarLink 
                                 key={id}
@@ -86,6 +90,7 @@ export const Sidebar = ({showSideBar}) => {
                                 animate={showSideBar ? 'show' : 'hidden' }
                                 initial={{zIndex: 0}}
                                 variants={sidebarItemsVariants}
+                                isActive={pathname === categoriesMapping[id].link}
                             />
                             
                 

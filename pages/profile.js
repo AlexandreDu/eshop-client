@@ -60,7 +60,7 @@ export default function Profile({}) {
                         let creationDate = format(new Date(createdAt), "MM/dd/yyyy")
                         return (
                             <>
-                                <li className='flex justify-between bg-purple-500 rounded-sm my-2 p-2 text-white' key={id}>
+                                <li className='flex justify-between bg-purple-800 rounded-sm my-2 p-2 text-white' key={id}>
                                     <Typography component='span' variant='h2'># {id}</Typography>
                                     <div>
                                         <Typography component='span' variant='body2'>{total}€</Typography> 

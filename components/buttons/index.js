@@ -4,7 +4,7 @@ export const Button = ({children, fullWidth = false, extraClass, onClick, disabl
    
 
 
-    let className = `min-w-[3.5rem] ${fullWidth ? 'w-full' : 'mx-2'} ${disabled ? 'bg-purple-500/50' : 'bg-purple-500'} my-2 text-white border-1 p-1  cursor-pointer` + ' ' + extraClass
+    let className = `min-w-[3.5rem] ${fullWidth ? 'w-full' : 'mx-2'} ${disabled ? 'bg-purple-800/50' : 'bg-purple-800'} my-2 text-white border-1 p-1  cursor-pointer` + ' ' + extraClass
     
    
 

@@ -81,7 +81,7 @@ export const Rate = ({
                         onClick={() => handleRating(id, ratingValue)}
                         onMouseEnter={() => setHover(ratingValue)}
                         onMouseLeave={() => setHover(null)}
-                        className={`text-xs ${ ratingValue <= (hover || yellowStarsCount) ? 'text-purple-500' : 'text-slate-500 ' }`} 
+                        className={`text-xs ${ ratingValue <= (hover || yellowStarsCount) ? 'text-purple-800' : 'text-slate-500 ' }`} 
                     />
                 )
             })}

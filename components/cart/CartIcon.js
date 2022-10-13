@@ -35,7 +35,7 @@ export const CartIcon = ({}) => {
                                 console.log('animation completedz')
                                 !isPresent && safeToRemove()
                             }}
-                            className="absolute -translate-y-1 -translate-x-3 z-10 bg-purple-500 text-white p-2 font-semibold rounded-full shadow-2xl shadow-white"
+                            className="absolute -translate-y-1 -translate-x-3 z-10 bg-purple-800 text-white p-2 font-semibold rounded-full shadow-2xl shadow-white"
                         >
                         {productsCount}
                         </motion.sup>
