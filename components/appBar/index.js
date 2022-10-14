@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 
@@ -11,9 +11,10 @@ import { CartIcon } from "../cart/CartIcon"
 import { LoginIcon } from "./loginIcon"
 
 import { useOutsideClick } from "../../hooks/useOutsideClick"
+import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll"
 
 import { categoriesMapping } from "../../data/categories"
-import Image from "next/image"
+
 
 const AppBarLink = ({label, href, isActive}) => {
 
@@ -40,15 +41,16 @@ export const AppBar = () => {
 
     const [showSideBar, setShowSideBar] = useState(false)
 
+    useDisableBodyScroll(showSideBar)
+
     const handleShowSideBar = () => {
+        
         setShowSideBar(prevState => !prevState)
     }
     const handleClickOutsideSideBar = () => {
         setShowSideBar(false)
     }
     const ref = useOutsideClick(handleClickOutsideSideBar)
-
-    console.log('pathname', pathname)
 
     const appBarNavLinks = (
         <ul className="flex">
@@ -90,10 +92,6 @@ export const AppBar = () => {
                 <nav className="hidden md:block">
                     {appBarNavLinks}
                 </nav>
-                {/* logo */}
-                {/* <div>
-                    <Image src={'/logo.png'} alt={'logo'}  height={60} width={60} />
-                </div> */}
             </header>
             <Sidebar 
                 categoriesMapping={categoriesMapping}

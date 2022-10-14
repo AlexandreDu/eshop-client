@@ -7,8 +7,13 @@ import { addProduct } from "../../../features/cart/cartSlice"
 import { Modal } from "../index"
 import { DetailedProductCard } from "../../cards"
 import { RoundedButton } from "../../buttons"
-import { useSelectTwo } from "../../../hooks/useSelectTwo"
+
 import { SelectTwo } from "../../select/selectTwo"
+
+import { useSelectTwo } from "../../../hooks/useSelectTwo"
+import { useDisableBodyScroll } from "../../../hooks/useDisableBodyScroll"
+
+
 
 import { getInteger } from "../../../utility/getInteger"
 
@@ -20,10 +25,12 @@ export const ProductModal = ({productSelected, setProductSelected}) => {
 
     const dispatch = useDispatch()
 
+    useDisableBodyScroll(productSelected)
+
     const product = useSelector(state => {
         return state.products.list.find(item => item.id === productSelected)
     })
- 
+    
 
     const handleAddProduct = (e) => {
 
