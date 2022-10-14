@@ -1,4 +1,3 @@
-import App from 'next/app'
 import Head from 'next/head'
 import { AnimatePresence } from "framer-motion"
 
