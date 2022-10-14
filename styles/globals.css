@@ -1,5 +1,7 @@
+/* for safari overflow hidden on body not working */
 body {
     position: relative;
+    height: 100%;
 }
 @tailwind base;
 @tailwind utilities;
