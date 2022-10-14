@@ -7,6 +7,7 @@ const variantsMapping = {
     body2: {component: "span", className: 'text-md'},
     body3: {component: "span", className: 'text-sm'},
     error: {component: "p", className: 'text-purple-800'},
+    sideBarlink: {component: "p", className: 'text-2xl font-bold'},
 }
 
 export const Typography = ({children, variant, component, ml, mr, color, bold }) => {

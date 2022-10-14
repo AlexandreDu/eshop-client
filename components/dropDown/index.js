@@ -7,8 +7,6 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
 export const DropDown = ({ title, content}) => {
 
 
-
-
     const [isOpen, setIsOpen] = useState(false)
     
 

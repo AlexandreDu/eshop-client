@@ -8,7 +8,7 @@ import { Typography } from "../../../typography"
 
 export const SidebarLink = ({label, href, animate, initial, variants, isActive}) => {
 
-    console.log('isActive', isActive)
+
     
     return (
       
@@ -20,7 +20,7 @@ export const SidebarLink = ({label, href, animate, initial, variants, isActive})
                 variants={variants}
 
             >
-                <Typography component='span' color={`${isActive ? 'text-red-500' : 'text-white' }`} bold>{label}</Typography>
+                <Typography  variant={'sideBarlink'} color={`${isActive ? 'text-red-500' : 'text-white' }`} bold>{label}</Typography>
             </motion.li>
         </Link>   
 
